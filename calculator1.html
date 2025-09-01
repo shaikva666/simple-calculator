@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="calculator2.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Theme Toggle Button -->
+  <div class="theme-container">
+    <button id="theme-toggle" class="theme-btn">🌙</button>
+  </div>
+
+  <div class="container">
+    <div class="calculator">
+      <h1>Simple Calculator</h1>
+      <div class="display">
+        <input type="text" id="result" readonly />
+      </div>
+      <div class="buttons">
+        <button class="btn clear" onclick="clearDisplay()">C</button>
+        <button class="btn delete" onclick="deleteDigit()">⌫</button>
+        <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+        <button class="btn operator" onclick="appendToDisplay('*')">×</button>
+
+        <button class="btn number number-7" onclick="appendToDisplay('7')">7 <span class="emoji">🍀</span></button>
+        <button class="btn number number-8" onclick="appendToDisplay('8')">8 <span class="emoji">🌟</span></button>
+        <button class="btn number number-9" onclick="appendToDisplay('9')">9 <span class="emoji">🔥</span></button>
+        <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+
+        <button class="btn number number-4" onclick="appendToDisplay('4')">4 <span class="emoji">🍋</span></button>
+        <button class="btn number number-5" onclick="appendToDisplay('5')">5 <span class="emoji">⭐</span></button>
+        <button class="btn number number-6" onclick="appendToDisplay('6')">6 <span class="emoji">🎵</span></button>
+        <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+
+        <button class="btn number number-1" onclick="appendToDisplay('1')">1 <span class="emoji">🍏</span></button>
+        <button class="btn number number-2" onclick="appendToDisplay('2')">2 <span class="emoji">🐝</span></button>
+        <button class="btn number number-3" onclick="appendToDisplay('3')">3 <span class="emoji">🌸</span></button>
+        <button class="btn equals" onclick="calculateResult()">=</button>
+
+        <button class="btn number number-0 zero" onclick="appendToDisplay('0')">0 <span class="emoji">🌀</span></button>
+        <button class="btn number number-dot" onclick="appendToDisplay('.')">. <span class="emoji">✨</span></button>
+      </div>
+    </div>
+  </div>
+  <script src="calculator3.js"></script>
+</body>
+</html>
