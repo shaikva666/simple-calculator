@@ -1,6 +1,7 @@
 let display = document.getElementById('result');
 let shouldResetDisplay = false;
 
+// Theme Toggle
 function initializeTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('calculatorTheme');
@@ -60,20 +61,7 @@ function calculateResult() {
     try {
         if (display.value === '') return;
         let expression = display.value.replace(/×/g, '*');
-        let cleanExpression = expression.replace(/\s+/g, "");
-        // Only triggers for actual division by zero (e.g., 9/0 but not 9/01 or 9/00)
-        if (/\/0(?![0-9])/.test(cleanExpression)) {
-            display.value = 'Error: Division by zero';
-            shouldResetDisplay = true;
-            return;
-        }
         let result = Function('"use strict"; return (' + expression + ')')();
-        if (!isFinite(result)) {
-            display.value = 'Error';
-            shouldResetDisplay = true;
-            return;
-        }
-        result = Math.round(result * 100000000) / 100000000;
         display.value = result.toString();
         shouldResetDisplay = true;
     } catch {
