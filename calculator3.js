@@ -62,8 +62,18 @@ function calculateResult() {
         if (display.value === '') return;
         let expression = display.value.replace(/×/g, '*');
         let result = Function('"use strict"; return (' + expression + ')')();
-        display.value = result.toString();
+
+        // Show ∞ or -∞ for positive/negative Infinity
+        if (result === Infinity) {
+            display.value = '∞';
+        } else if (result === -Infinity) {
+            display.value = '-∞';
+        } else {
+            display.value = result.toString();
+        }
+
         shouldResetDisplay = true;
+
     } catch {
         display.value = 'Error';
         shouldResetDisplay = true;
